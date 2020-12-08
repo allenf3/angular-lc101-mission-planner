@@ -1,4 +1,19 @@
 .box {
     display:flex;
     padding:10px;
+    background-color: gold;
+    justify-content: space-evenly;
+    width: 800px;
+}
+
+h3 {
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+ul {
+    list-style-type: square;
+}
+
+li {
+    font-family: 'Encode Sans Condensed', sans-serif;
 }
