@@ -7,9 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EquipmentComponent implements OnInit {
 
+  equipment: string[] = ['Habitat dome', 'Drones', 'Food containers', 'Oxygen tanks'];
+  placeholder: string = "Enter equipment";
+  itemToEdit: string = null;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addEquipment(item: string) {
+    this.equipment.push(item);
+  }
+
+  edit(item: string) {
+    this.itemToEdit = item;
+  }
+
+  save(newEquipmentName: string) {
+    let index = this.equipment.indexOf(this.itemToEdit);
+    this.equipment[index] = newEquipmentName;
+    this.itemToEdit = null;
+  }
+
+  remove(item: string) {
+    let index = this.equipment.indexOf(item);
+    this.equipment.splice(index, 1);
   }
 
 }
