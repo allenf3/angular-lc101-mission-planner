@@ -7,8 +7,17 @@
     </span>
     <ng-template #editMissionBlock>
         <input #mission (keyup.enter)="updateMission(mission.value)" value="{{ missionName }}"/>
-        <button (click)="updateMission(mission.value)">save</button>
+        <button (click)="updateMission(mission.value)">Save</button>
     </ng-template>
 </h3>
 
-<h3>Carrier Rocket: {{ rocketName }}</h3>
+<h3>Carrier Rocket: 
+    <span *ngIf="!editingRocket; else editRocket">
+        <span class="editable-text" (click)="editingRocket=true;">{{ rocketName }}</span>
+    </span>
+
+    <ng-template #editRocket>
+        <input #rocket (keyup.enter)="changeRocketName(rocket.value)" value="{{ rocketName }}"/>
+        <button (click)="changeRocketName(rocket.value)">Save</button>
+    </ng-template>
+</h3>
