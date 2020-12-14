@@ -8,10 +8,10 @@
   </li>
 </ul>
 
-<input #newEquipment type="text" (keyup.enter)="addEquipment(newEquipment.value)" placeholder="{{ placeholder }} " />
-<button (click)="addEquipment(newEquipment.value)">Save</button>
+<input id="addEquipment" #newEquipment type="text" (keyup.enter)="addEquipment(newEquipment.value)" placeholder="{{ placeholder }} " />
+<button (click)="addEquipment(newEquipment.value)">Add</button>
 
 <ng-template #elseBlock>
-  <input #newEquipmentName type="text" placeholder="{{ placeholder }}"/>
+  <input #newEquipmentName (keyup.enter)="save(newEquipmentName.value)" type="text" placeholder="{{ placeholder }}"/>
   <button (click)="save(newEquipmentName.value)">Save</button>
 </ng-template>

@@ -17,7 +17,10 @@ export class EquipmentComponent implements OnInit {
   }
 
   addEquipment(item: string) {
-    this.equipment.push(item);
+    if(!this.equipment.includes(item) && item){
+      this.equipment.push(item);
+    }
+    (<HTMLInputElement>document.getElementById("addEquipment")).value = "";
   }
 
   edit(item: string) {
@@ -25,8 +28,10 @@ export class EquipmentComponent implements OnInit {
   }
 
   save(newEquipmentName: string) {
-    let index = this.equipment.indexOf(this.itemToEdit);
-    this.equipment[index] = newEquipmentName;
+    if(!this.equipment.includes(newEquipmentName)) {
+      let index = this.equipment.indexOf(this.itemToEdit);
+      this.equipment[index] = newEquipmentName;
+    }
     this.itemToEdit = null;
   }
 
